@@ -14,6 +14,7 @@ img.frontPic {
   max-height:15vh;
   max-width:90vw;
   /* float: left; */
+  animation: img-spin infinite 20s linear; 
 }
 
 .logo {
@@ -45,3 +46,12 @@ img.frontPic {
 .login:hover {
    background-color: rgba(67,76,81,1);
 }
+
+@keyframes img-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 

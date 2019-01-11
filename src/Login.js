@@ -4,8 +4,8 @@ class Login extends Component {
     render() {
         return (
             <div className="login">
-                <input placeholder="username"/> <br/>
-                <input placeholder="password" /> <br/>
+                <input type="text" placeholder="username"/> <br/>
+                <input type="password" placeholder="password" /> <br/>
                 <button>Login</button>
             </div>
         );
