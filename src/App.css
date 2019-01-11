@@ -1,0 +1,47 @@
+.navbar {
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  width:80vw;
+  max-width: 1080px;
+}
+
+img.frontPic {
+  display: block;
+  margin-top:-10vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-height:15vh;
+  max-width:90vw;
+  /* float: left; */
+}
+
+.logo {
+  color: #434C51;
+  font-size: 10vh;
+  margin-top: 25vh;
+}
+
+.text {
+  position: fixed;
+  top: 32%;
+  left: 50%;
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+}
+
+.login {
+  color: black;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  /* background-color: #434C51; */
+   background-color: rgba(67,76,81,0.7); 
+  /* opacity: 0.8; */
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.login:hover {
+   background-color: rgba(67,76,81,1);
+}
