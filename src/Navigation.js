@@ -12,7 +12,7 @@ class Navigation extends Component {
       <div className="navbar">
 
         <div className="logo">
-          <img src="/onechamber.png" class="frontPic" alt="gun" />
+          <img src="/onechamberwhite.png" class="frontPic" alt="gun" />
           <div class="text">chamber</div>
         </div>
 
