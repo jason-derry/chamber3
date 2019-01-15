@@ -1,48 +1,79 @@
 import React, { Component } from 'react';
-import { Button, Navbar, NavItem, NavDropdown, MenuItem, Nav, FormGroup, FormControl } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem
+} from 'reactstrap';
 
 class Navigation extends Component {
-  render() {
-    return (
-      <div className="navbar">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 
-          <div className="logo">
-            <img src="/chamber.png" class="frontPic" alt="gun" />
-            <div class="text">weaponDB</div>
-          </div>
+    constructor(props) {
+    super(props);
 
-
-        <Navbar fluid inverse collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav pullLeft>
-              <NavDropdown eventKey={1} title="Weapons" id="basic-nav-dropdown">
-                <MenuItem eventKey={1.1}>Guns</MenuItem>
-                <MenuItem eventKey={1.2}>More Guns</MenuItem>
-                <MenuItem eventKey={1.3}>Maybe Swords</MenuItem>
-                <MenuItem divider />
-                <MenuItem eventKey={1.4}>All Weapons</MenuItem>
-               </NavDropdown>
-              <NavItem eventKey={2} href="#">
-                Attachments
-              </NavItem>
-            </Nav>
-            <Nav pullRight>
-              <Navbar.Form>
-                <FormGroup>
-                  <FormControl type="text" placeholder="Type something!" />
-                </FormGroup>{' '}
-                <Button type="submit">Submit</Button>
-              </Navbar.Form>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-      </div>
-    );
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
   }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+    render() {
+        return (
+            <div className="navbar">
+
+                <div className="logo">
+                    <img src="/onechamberwhite.png" class="frontPic" alt="gun" />
+                    <div class="text">chamber</div>
+                </div>
+
+
+                <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/components/">Components</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              </NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Options
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    Option 1
+                  </DropdownItem>
+                  <DropdownItem>
+                    Option 2
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
+                    Reset
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
+            </div>
+        );
+    }
 }
 
 export default Navigation;
