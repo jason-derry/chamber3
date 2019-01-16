@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
-import { Button, Collapse, Well } from 'react-bootstrap';
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
 
 class Login extends Component {
-
-    constructor(props, context) {
-        super(props, context);
-
-        this.state = {
-            open: false
-        };
+    constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = { collapse: false };
     }
+
+    toggle() {
+        this.setState({ collapse: !this.state.collapse });
+    }
+
     render() {
         return (
-            // <div className="login">
-            //     <input type="text" placeholder="username"/> <br/>
-            //     <input type="password" placeholder="password" /> <br/>
-            //     <button className="loginButton">Login</button>
-            // </div>
-
             <div className="loginDropdown">
-                <Button className="dropdownButton" bsSize="xs" onClick={() => this.setState({ open: !this.state.open })}>
-                    Login/Register ▼
-                </Button>
-                <Collapse in={this.state.open}>
-                    <div className="login">
-                        <input type="text" placeholder="username" /> <br />
-                        <input type="password" placeholder="password" /> <br />
-                        <Button className="loginButton" bsSize="xs">Login</Button>
-                        <Button className="registerButton" bsSize="xs">Sign up</Button>
-                    </div>
+                <Button className="dropdownButton" color="secondary" onClick={this.toggle} size="sm">Login/Register</Button>
+                <Collapse isOpen={this.state.collapse}>
+                    <Card>
+                        <div className="login">
+                            <input type="text" placeholder="username" /> <br />
+                            <input type="password" placeholder="password" /> <br />
+                            <Button className="loginButton" size="sm">Login</Button>
+                            <Button className="registerButton" size="sm">Sign up</Button>
+                        </div>
+                    </Card>
                 </Collapse>
             </div>
         );
